@@ -1,0 +1,166 @@
+Kode ini adalah kode JavaScript yang mendefinisikan sejumlah variabel dengan menggunakan metode `getElementById` dan `querySelector` untuk mengambil elemen-elemen dalam halaman HTML. Berikut ini adalah penjelasan variabel-variabel tersebut:
+
+1. `temp` - Mendapatkan elemen dengan ID "temp" dari halaman HTML.
+2. `date` - Mendapatkan elemen dengan ID "date-time" dari halaman HTML.
+3. `condition` - Mendapatkan elemen dengan ID "condition" dari halaman HTML.
+4. `rain` - Mendapatkan elemen dengan ID "rain" dari halaman HTML.
+5. `mainIcon` - Mendapatkan elemen dengan ID "icon" dari halaman HTML.
+6. `currentLocation` - Mendapatkan elemen dengan ID "location" dari halaman HTML.
+7. `uvIndex` - Mendapatkan elemen dengan kelas "uv-index" dari halaman HTML.
+8. `uvText` - Mendapatkan elemen dengan kelas "uv-text" dari halaman HTML.
+9. `windSpeed` - Mendapatkan elemen dengan kelas "wind-speed" dari halaman HTML.
+10. `sunRise` - Mendapatkan elemen dengan kelas "sun-rise" dari halaman HTML.
+11. `sunSet` - Mendapatkan elemen dengan kelas "sun-set" dari halaman HTML.
+12. `humidity` - Mendapatkan elemen dengan kelas "humidity" dari halaman HTML.
+13. `visibility` - Mendapatkan elemen dengan kelas "visibilty" dari halaman HTML.
+14. `humidityStatus` - Mendapatkan elemen dengan kelas "humidity-status" dari halaman HTML.
+15. `airQuality` - Mendapatkan elemen dengan kelas "air-quality" dari halaman HTML.
+16. `airQualityStatus` - Mendapatkan elemen dengan kelas "air-quality-status" dari halaman HTML.
+17. `visibilityStatus` - Mendapatkan elemen dengan kelas "visibilty-status" dari halaman HTML.
+18. `searchForm` - Mendapatkan elemen dengan ID "search" dari halaman HTML.
+19. `search` - Mendapatkan elemen dengan ID "query" dari halaman HTML.
+20. `celciusBtn` - Mendapatkan elemen dengan kelas "celcius" dari halaman HTML.
+21. `fahrenheitBtn` - Mendapatkan elemen dengan kelas "fahrenheit" dari halaman HTML.
+22. `tempUnit` - Mendapatkan semua elemen dengan kelas "temp-unit" dari halaman HTML.
+23. `hourlyBtn` - Mendapatkan elemen dengan kelas "hourly" dari halaman HTML.
+24. `weekBtn` - Mendapatkan elemen dengan kelas "week" dari halaman HTML.
+25. `weatherCards` - Mendapatkan elemen dengan ID "weather-cards" dari halaman HTML.
+
+Selain itu, ada juga dua variabel yang diinisialisasi dengan nilai awal:
+
+1. `currentCity` - Variabel yang akan digunakan untuk menyimpan nama kota saat ini.
+2. `currentUnit` - Variabel yang akan digunakan untuk menyimpan unit suhu saat ini (celcius atau fahrenheit).
+3. `hourlyorWeek` - Variabel yang akan digunakan untuk menyimpan jenis tampilan cuaca saat ini (per jam atau per minggu).
+
+berikunya sebuah fungsi JavaScript yang disebut `getDateTime()`. Fungsi ini digunakan untuk mendapatkan informasi tanggal dan waktu saat ini. Berikut adalah penjelasan lebih lanjut mengenai isi fungsi tersebut:
+
+1. Pertama, fungsi membuat sebuah objek `Date` baru dengan menggunakan `new Date()`. Objek `Date` ini merepresentasikan waktu saat ini.
+2. Kemudian, fungsi mengambil jam saat ini dari objek `Date` dengan menggunakan metode `getHours()` dan menyimpannya dalam variabel `hour`.
+3. Selanjutnya, fungsi mengambil menit saat ini dari objek `Date` dengan menggunakan metode `getMinutes()` dan menyimpannya dalam variabel `minute`.
+4. Selanjutnya, fungsi mendefinisikan sebuah array bernama `days` yang berisi nama-nama hari dalam seminggu, dimulai dari Minggu.
+5. Fungsi mengembalikan hasilnya dalam bentuk objek dengan dua properti: `hour` yang berisi jam saat ini, dan `minute` yang berisi menit saat ini.
+
+Dengan menggunakan fungsi `getDateTime()`, kita dapat memperoleh informasi tanggal dan waktu saat ini dengan memanggil fungsi tersebut.
+
+
+Kode berikut merupakan lanjutan dari fungsi `getDateTime()` yang telah dijelaskan sebelumnya. Bagian ini berisi beberapa pernyataan yang digunakan untuk memformat waktu dan tanggal dalam bentuk yang lebih mudah dipahami. Berikut adalah penjelasan untuk setiap pernyataan tersebut:
+
+1. `hour = hour % 12;` - Pernyataan ini mengubah nilai `hour` menjadi bentuk 12-jam. Operator `%` digunakan untuk mendapatkan sisa hasil bagi dari `hour` dibagi dengan 12. Misalnya, jika `hour` adalah 15, maka hasilnya akan menjadi 3. Jadi, pernyataan ini mengonversi nilai jam dalam format 24-jam menjadi format 12-jam.
+2. `if (hour < 10) { hour = "0" + hour; }` - Pernyataan ini memeriksa apakah `hour` kurang dari 10. Jika benar, itu berarti jam hanya memiliki satu digit. Dalam hal ini, pernyataan menambahkan "0" di depan `hour` menggunakan operator konkatenasi (`+`). Misalnya, jika `hour` adalah 5, maka pernyataan ini akan mengubahnya menjadi "05".
+3. `if (minute < 10) { minute = "0" + minute; }` - Pernyataan ini mirip dengan pernyataan sebelumnya, tetapi diterapkan pada variabel `minute`. Jika `minute` kurang dari 10, pernyataan akan menambahkan "0" di depan `minute`.
+4. `let dayString = days[now.getDay()];` - Pernyataan ini mendapatkan nama hari dari array `days` berdasarkan indeks hari saat ini yang diperoleh dengan menggunakan `getDay()` pada objek `now`. Misalnya, jika hari ini adalah Rabu (indeks 3), maka `dayString` akan berisi string "Wednesday".
+5. `return `${dayString}, ${hour}:${minute}`;` - Pernyataan ini mengembalikan hasil akhir dalam bentuk string yang berisi nama hari (`dayString`), jam (`hour`), dan menit (`minute`) yang telah diformat sebelumnya. String tersebut akan berbentuk contoh berikut: "Wednesday, 03:30".
+
+Dengan menggunakan bagian kode ini, fungsi `getDateTime()` mengembalikan string yang mewakili tanggal dan waktu saat ini dalam format yang lebih mudah dipahami, seperti "Wednesday, 03:30".
+
+
+berikutnya digunakan untuk memperbarui elemen HTML dengan ID "date-time" dengan waktu yang terus diperbarui secara real-time. Berikut adalah penjelasan untuk setiap baris kode tersebut:
+
+1. `date.innerText = getDateTime();` - Pada baris ini, nilai teks dari elemen dengan ID "date-time" akan diatur dengan memanggil fungsi `getDateTime()`. Fungsi ini akan mengembalikan string yang berisi tanggal dan waktu saat ini, seperti "Wednesday, 03:30". Sehingga, nilai teks dari elemen akan diupdate dengan tanggal dan waktu saat ini.
+
+2. `setInterval(() => { date.innerText = getDateTime(); }, 1000);` - Pada baris ini, digunakan fungsi `setInterval()` untuk memperbarui nilai teks elemen "date-time" secara periodik. Fungsi `setInterval()` akan menjalankan fungsi yang diberikan sebagai argumen (dalam hal ini, fungsi anonim yang mengupdate nilai teks elemen) setiap interval waktu tertentu. Di sini, intervalnya adalah 1000 milidetik (1 detik), sehingga fungsi akan dijalankan setiap 1 detik. Dengan demikian, elemen "date-time" akan terus diperbarui secara real-time dengan waktu yang tepat.
+
+berikutnya fungsi JavaScript `getPublicIp()` yang digunakan untuk mendapatkan alamat IP publik pengguna dan mengambil data cuaca berdasarkan alamat IP tersebut. Setelah mendefinisikan fungsi `getPublicIp()`, baris terakhir `getPublicIp();` digunakan untuk memanggil fungsi tersebut agar dieksekusi. Berikut adalah penjelasan lebih lanjut mengenai kode tersebut:
+
+1. Fungsi `getPublicIp()` menggunakan metode `fetch()` untuk membuat permintaan HTTP ke URL "https://geolocation-db.com/json/". URL ini memberikan data JSON yang berisi informasi geolokasi, termasuk alamat IP publik pengguna.
+2. Permintaan dilakukan dengan menggunakan metode "GET" dan tidak ada header tambahan yang ditentukan.
+3. Setelah permintaan selesai, metode `fetch()` mengembalikan objek `Response`. Kode `.then()` digunakan untuk menangani respons dari permintaan tersebut.
+4. Pada blok `.then((response) => response.json())`, respons dari permintaan diubah menjadi format JSON menggunakan metode `.json()`. Ini mengembalikan Promise baru yang akan mengembalikan data JSON.
+5. Kemudian, pada blok `.then((data) => { ... })`, data JSON tersebut diakses dan digunakan untuk melakukan tindakan berikutnya.
+6. Di dalam blok tersebut, variabel `currentCity` diisi dengan nilai `data.city`, yang merupakan kota yang diperoleh dari data geolokasi.
+7. Selanjutnya, fungsi `getWeatherData()` dipanggil dengan argumen yang sesuai untuk mengambil data cuaca berdasarkan kota (`data.city`), unit suhu saat ini (`currentUnit`), dan jenis tampilan cuaca (`hourlyorWeek`).
+8. Jika terjadi kesalahan dalam permintaan atau pengambilan data JSON, blok `.catch((err) => { ... })` akan menangani error dan mencetak pesan error ke konsol.
+
+Terakhir, `getPublicIp();` digunakan untuk memanggil fungsi `getPublicIp()` sehingga kode dalam fungsi tersebut dieksekusi dan memulai proses untuk mendapatkan alamat IP publik pengguna dan data cuaca berdasarkan IP tersebut.
+
+fungsi JavaScript `getWeatherData()` yang digunakan untuk mengambil data cuaca berdasarkan kota, unit suhu, dan jenis tampilan cuaca yang diberikan. Berikut adalah penjelasan lebih lanjut mengenai isi fungsi tersebut:
+
+1. Fungsi `getWeatherData()` menerima tiga parameter: `city` (kota), `unit` (unit suhu), dan `hourlyorWeek` (jenis tampilan cuaca).
+2. Fungsi menggunakan metode `fetch()` untuk melakukan permintaan HTTP ke URL yang tergantung pada parameter `city`. URL ini mengambil data cuaca dari Visual Crossing Weather API.
+3. Permintaan dilakukan dengan menggunakan metode "GET" dan tidak ada header tambahan yang ditentukan.
+4. Setelah permintaan selesai, metode `fetch()` mengembalikan objek `Response`. Kode `.then()` digunakan untuk menangani respons dari permintaan tersebut.
+5. Pada blok `.then((response) => response.json())`, respons dari permintaan diubah menjadi format JSON menggunakan metode `.json()`. Ini mengembalikan Promise baru yang akan mengembalikan data JSON.
+6. Kemudian, pada blok `.then((data) => { ... })`, data JSON tersebut diakses dan digunakan untuk melakukan tindakan berikutnya.
+7. Di dalam blok tersebut, variabel `today` diisi dengan data cuaca saat ini dari `data.currentConditions`.
+8. Berbagai elemen HTML diupdate dengan nilai yang sesuai berdasarkan data cuaca. Misalnya, suhu ditampilkan di elemen dengan ID "temp", lokasi di elemen dengan ID "location", kondisi cuaca di elemen dengan ID "condition", dan seterusnya.
+9. Jika `unit` adalah "c" (celcius), suhu ditampilkan langsung. Jika tidak, suhu akan diubah menjadi Fahrenheit menggunakan fungsi `celciusToFahrenheit()` sebelum ditampilkan.
+10. Berbagai fungsi lain seperti `measureUvIndex()`, `changeBackground()`, `updateHumidityStatus()`, `updateVisibiltyStatus()`, dan `updateAirQualityStatus()` digunakan untuk melakukan pemrosesan tambahan pada data cuaca dan memperbarui elemen HTML dengan hasilnya.
+11. Terakhir, fungsi `updateForecast()` dipanggil untuk memperbarui tampilan ramalan cuaca berdasarkan jenis tampilan yang diberikan (`hourlyorWeek`). Jika `hourlyorWeek` adalah "hourly", fungsi `updateForecast()` akan memperbarui tampilan ramalan cuaca per jam menggunakan data `data.days[0].hours`. Jika `hourlyorWeek` adalah "week", fungsi `updateForecast()` akan memperbarui tampilan ramalan cuaca per minggu menggunakan data `data.days`.
+12. Waktu matahari terbit (`sunRise`) dan waktu matahari terbenam (`sunSet`) juga diubah menjadi format 12 jam menggunakan fungsi `covertTimeTo12HourFormat()`.
+13. Jika terjadi kesalahan dalam permintaan atau pengolahan data cuaca, blok `.catch((err) => { ... })` akan menangani error dan menampilkan pesan peringatan dengan teks "City not found in our database".
+
+Dengan menggunakan fungsi `getWeatherData()`, kita dapat mengambil data cuaca berdasarkan kota, unit suhu, dan
+
+ jenis tampilan cuaca yang diberikan, dan memperbarui elemen HTML dengan informasi cuaca yang relevan.
+
+
+fungsi JavaScript `updateForecast()` yang digunakan untuk memperbarui tampilan ramalan cuaca. Fungsi ini menerima tiga parameter: `data` (data cuaca), `unit` (unit suhu), dan `type` (jenis tampilan). Berikut adalah penjelasan lebih lanjut mengenai isi fungsi tersebut:
+
+1. Fungsi `updateForecast()` dimulai dengan mengosongkan isi elemen dengan ID "weather-cards" menggunakan pernyataan `weatherCards.innerHTML = "";`. Ini memastikan bahwa tampilan ramalan cuaca yang lama dihapus sebelum diperbarui dengan data yang baru.
+2. Variabel `day` dan `numCards` dideklarasikan dengan nilai awal 0.
+3. Jika `type` adalah "day", maka `numCards` diatur menjadi 24 karena kita ingin menampilkan ramalan cuaca per jam dalam sehari. Jika `type` adalah "week", maka `numCards` diatur menjadi 7 karena kita ingin menampilkan ramalan cuaca per hari dalam seminggu.
+4. Dilakukan perulangan `for` untuk membuat elemen HTML untuk setiap ramalan cuaca. Jumlah perulangan sesuai dengan `numCards`.
+5. Di dalam setiap perulangan, dibuat elemen `<div>` baru yang mewakili sebuah kartu cuaca dengan menggunakan `document.createElement("div")`.
+6. Class CSS "card" ditambahkan ke elemen kartu cuaca dengan menggunakan `card.classList.add("card")`.
+7. Variabel `dayName` diisi dengan nama hari atau jam berdasarkan tanggal dan waktu yang diberikan dalam `data[day].datetime`. Jika `type` adalah "week", maka nama hari akan diperoleh menggunakan fungsi `getDayName()`. Jika `type` adalah "day", maka nama jam akan diperoleh menggunakan fungsi `getHour()`.
+8. Variabel `dayTemp` diisi dengan suhu yang diberikan dalam `data[day].temp`. Jika `unit` adalah "f", maka suhu akan diubah menjadi Fahrenheit menggunakan fungsi `celciusToFahrenheit()`.
+9. Variabel `iconCondition` diisi dengan kondisi cuaca yang diberikan dalam `data[day].icon`.
+10. Variabel `iconSrc` diisi dengan sumber ikon cuaca yang sesuai berdasarkan kondisi cuaca menggunakan fungsi `getIcon()`.
+11. Variabel `tempUnit` diisi dengan satuan suhu yang akan ditampilkan ("°C" untuk Celcius dan "°F" untuk Fahrenheit) berdasarkan nilai `unit`.
+12. Isi elemen kartu cuaca ditentukan dengan menggunakan `card.innerHTML`. Ini mencakup elemen-elemen seperti nama hari/jam, ikon cuaca, suhu, dan satuan suhu.
+13. Elemen kartu cuaca ditambahkan ke elemen dengan ID "weather-cards" menggunakan `weatherCards.appendChild(card)`.
+14. Variabel `day` ditingkatkan seiring dengan berjalannya perulangan untuk melanjutkan ke data cuaca berikutnya.
+
+Dengan menggunakan fungsi `updateForecast()`, kita dapat memperbarui tampilan ramalan cuaca dengan data yang diberikan, termasuk memilih jumlah kartu cuaca yang sesuai berdasarkan jenis tampilan (`type`), mengonversi suhu ke unit yang diinginkan (`unit`), dan men
+
+ampilkan ikon cuaca yang tepat berdasarkan kondisi cuaca yang diberikan.
+
+next
+
+1. `getIcon(condition)`: Fungsi ini mengembalikan URL ikon cuaca yang sesuai berdasarkan kondisi cuaca yang diberikan sebagai argumen. Jika kondisi adalah "partly-cloudy-day", maka ikon cuaca yang berkaitan dengan kondisi tersebut akan dikembalikan.
+
+2. `changeBackground(condition)`: Fungsi ini mengubah gambar latar belakang halaman dengan menggunakan gambar yang sesuai dengan kondisi cuaca yang diberikan sebagai argumen.
+
+3. `getHour(time)`: Fungsi ini menerima waktu dalam format "HH:MM" dan mengembalikan waktu dalam format 12 jam dengan menambahkan "AM" atau "PM" di akhirnya.
+
+4. `covertTimeTo12HourFormat(time)`: Fungsi ini mengonversi waktu dalam format "HH:MM" ke format 12 jam dengan menambahkan "AM" atau "PM" di akhirnya.
+
+5. `getDayName(date)`: Fungsi ini menerima tanggal dalam format "YYYY-MM-DD" dan mengembalikan nama hari yang sesuai berdasarkan tanggal tersebut.
+
+6. `measureUvIndex(uvIndex)`: Fungsi ini mengukur indeks UV yang diberikan dan mengembalikan status keadaan UV berdasarkan indeks tersebut.
+
+7. `updateHumidityStatus(humidity)`: Fungsi ini mengupdate status kelembaban berdasarkan nilai kelembaban yang diberikan.
+
+8. `updateVisibiltyStatus(visibility)`: Fungsi ini mengupdate status visibilitas berdasarkan nilai visibilitas yang diberikan.
+
+9. `updateAirQualityStatus(airquality)`: Fungsi ini mengupdate status kualitas udara berdasarkan nilai kualitas udara yang diberikan.
+
+10. `searchForm.addEventListener("submit", (e) => {...})`: Ini adalah event listener yang ditambahkan pada elemen formulir pencarian. Ketika formulir disubmit, fungsi ini akan dieksekusi. Fungsi ini mendapatkan nilai lokasi dari input pencarian, lalu memanggil fungsi `getWeatherData()` untuk mendapatkan data cuaca berdasarkan lokasi tersebut.
+
+11. `celciusToFahrenheit(temp)`: Fungsi ini mengonversi suhu dari Celcius ke Fahrenheit.
+
+
+next
+
+
+1. `search.addEventListener("input", function (e) {...})`: Ini adalah event listener yang ditambahkan pada elemen input pencarian. Ketika nilai input berubah, fungsi ini akan dieksekusi. Fungsi ini memeriksa nilai input pencarian dan membuat saran-saran untuk hasil pencarian berdasarkan nilai tersebut.
+
+2. `search.addEventListener("keydown", function (e) {...})`: Ini adalah event listener yang ditambahkan pada elemen input pencarian. Ketika tombol keyboard ditekan, fungsi ini akan dieksekusi. Fungsi ini mengatur navigasi dalam daftar saran pencarian menggunakan tombol panah atas (keyCode 38) dan tombol panah bawah (keyCode 40). Ketika tombol Enter (keyCode 13) ditekan, fungsi ini akan mengambil nilai dari saran yang sedang dipilih (jika ada) dan mengisinya ke dalam input pencarian.
+
+3. `addActive(x)`: Fungsi ini menambahkan kelas "active" ke elemen dalam daftar saran yang sedang dipilih.
+
+4. `removeActive(x)`: Fungsi ini menghapus kelas "active" dari semua elemen dalam daftar saran.
+
+5. `removeSuggestions()`: Fungsi ini menghapus daftar saran pencarian dari tampilan.
+
+6. `fahrenheitBtn.addEventListener("click", () => {...})` dan `celciusBtn.addEventListener("click", () => {...})`: Ini adalah event listener yang ditambahkan pada tombol untuk mengubah unit suhu. Ketika tombol Fahrenheit atau Celsius diklik, fungsi ini akan dieksekusi. Fungsi ini mengubah unit suhu yang sedang digunakan, memperbarui tampilan dengan unit yang baru, dan memanggil fungsi `getWeatherData()` untuk mendapatkan data cuaca dengan unit yang baru.
+
+7. `changeUnit(unit)`: Fungsi ini mengubah unit suhu yang sedang digunakan. Jika unit yang diberikan berbeda dengan unit yang sedang digunakan, fungsi ini akan memperbarui unit yang digunakan, memperbarui tampilan dengan unit yang baru, dan memanggil fungsi `getWeatherData()` untuk mendapatkan data cuaca dengan unit yang baru.
+
+8. `hourlyBtn.addEventListener("click", () => {...})` dan `weekBtn.addEventListener("click", () => {...})`: Ini adalah event listener yang ditambahkan pada tombol untuk mengubah rentang waktu tampilan cuaca. Ketika tombol "Hourly" atau "Weekly" diklik, fungsi ini akan dieksekusi. Fungsi ini mengubah rentang waktu tampilan cuaca yang sedang digunakan, memperbarui tampilan dengan rentang waktu yang baru, dan memanggil fungsi `getWeatherData()` untuk mendapatkan data cuaca dengan rentang waktu yang baru.
+
+9. `changeTimeSpan(unit)`: Fungsi ini mengubah rentang waktu tampilan cuaca yang sedang digunakan. Jika rentang waktu yang diberikan berbeda dengan rentang waktu yang sedang digunakan, fungsi ini akan memperbarui rentang waktu yang digunakan, memperbarui tampilan dengan rentang waktu yang baru, dan memanggil fungsi `getWeatherData()` untuk mendapatkan data cuaca dengan rentang waktu yang baru.
+
+10. `cities = [...]`: Variabel `cities` adalah array yang berisi daftar kota beserta informasi koordinat geografisnya. Daftar ini digunakan untuk memberikan saran pencarian berdasarkan nilai yang dimasukkan pengguna.
+
+dapat reprensi yt
